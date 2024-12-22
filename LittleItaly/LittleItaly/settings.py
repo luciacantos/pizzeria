@@ -131,3 +131,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EDAMAM_APP_ID = config('EDAMAM_APP_ID')
 EDAMAM_APP_KEY = config('EDAMAM_APP_KEY')
+
+
+# para redirigir despues de iniciar sesion y esas cositas
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/usuarios/login/'
