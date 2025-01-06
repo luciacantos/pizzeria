@@ -11,14 +11,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
-from decouple import config
-
+load_dotenv()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -41,6 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'LittleItaly',
+    'carrito',
+    'menu',
+    'usuarios',
+    'pedidos',
+
+    # Third party APPS
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -127,10 +135,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# API nutrientes
+# API Recipes
 
-EDAMAM_APP_ID = config('EDAMAM_APP_ID')
-EDAMAM_APP_KEY = config('EDAMAM_APP_KEY')
+EDAMAM_APP_ID = os.getenv('EDAMAM_APP_ID', 'EDAM_APP_ID')
+EDAMAM_APP_KEY = os.getenv('EDAMAM_APP_KEY', 'EDAMAM_APP_KEY')
 
 
 # para redirigir despues de iniciar sesion y esas cositas
