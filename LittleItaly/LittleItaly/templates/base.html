@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LittleItaly{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>LittleItaly</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/menu/">Menú</a></li>
+                <li><a href="/carrito/">Carrito</a></li>
+                <li><a href="/pedidos/">Pedidos</a></li>
+                <li><a href="/usuarios/">Usuarios</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

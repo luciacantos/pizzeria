@@ -17,10 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from LittleItaly.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('usuarios/', include('usuarios.urls')),  # Rutas de usuarios
-    path('', views.home, name='home'),  # Página principal
+    path('', home, name='home'),  # Página principal
+    path('menu/', include('menu.urls')),  # URLs de Menú
+    path('carrito/', include('carrito.urls')),  # URLs de Carrito
+    path('pedidos/', include('pedidos.urls')),  # URLs de Pedidos
+    path('usuarios/', include('usuarios.urls')),  # URLs de Usuarios
 ]
