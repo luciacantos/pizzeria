@@ -26,3 +26,6 @@ def get_nutritional_info(ingredients):
         return response.json()  # Devuelve los datos nutricionales
     else:
         return {"error": response.status_code, "message": response.text}
+
+def menu(request):
+    return render(request, "menu/menu.html")
