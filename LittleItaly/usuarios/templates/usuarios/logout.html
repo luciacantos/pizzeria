@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logout</title>
-</head>
-<body>
-    <h2>Has cerrado sesión exitosamente</h2>
-    <a href="{% url 'login' %}">Iniciar Sesión</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Cerrar Sesión{% endblock %}
+
+{% block content %}
+<form action="{% url 'logout' %}" method="POST">
+    {% csrf_token %}
+    <h1>Cerrar Sesión</h1>
+    <p>¿Estás seguro de que deseas salir?</p>
+    <button type="submit">Cerrar Sesión</button>
+    <p><a href="{% url 'home' %}">Cancelar</a></p>
+</form>
+{% endblock %}
+
