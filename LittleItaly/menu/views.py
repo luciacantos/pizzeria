@@ -1,31 +1,33 @@
 from django.shortcuts import render
-
 import requests
 from django.conf import settings
 
 
-# Create your views here.
+print("EDAMAM_APP_ID:", settings.EDAMAM_APP_ID)
+print("EDAMAM_APP_KEY:", settings.EDAMAM_APP_KEY)
 
-def get_nutritional_info(ingredients):
-    url = f"https://api.edamam.com/api/nutrition-details"
-    headers = {
-        "Content-Type": "application/json"
-    }
+def menu(request):
+    url = f"https://api.edamam.com/api/recipes/v2"
     params = {
+        "type": "public",
+        "q": "pizza",
         "app_id": settings.EDAMAM_APP_ID,
         "app_key": settings.EDAMAM_APP_KEY
     }
-    data = {
-        "title": "Custom Pizza",
-        "ingr": ingredients  # Lista de ingredientes
-    }
     
-    response = requests.post(url, json=data, headers=headers, params=params)
-    
-    if response.status_code == 200:
-        return response.json()  # Devuelve los datos nutricionales
-    else:
-        return {"error": response.status_code, "message": response.text}
+    response = requests.get(url, params=params)
+    pizzas = []
 
-def menu(request):
-    return render(request, "menu/menu.html")
+    if response.status_code == 200:
+        data = response.json()
+        if "hits" in data:
+            pizzas = [
+                {
+                    "name": hit["recipe"]["label"],
+                    "image": hit["recipe"]["image"],
+                    "ingredients": hit["recipe"]["ingredientLines"]
+                }
+                for hit in data["hits"]
+            ]
+    
+    return render(request, "menu/menu.html", {"pizzas": pizzas})

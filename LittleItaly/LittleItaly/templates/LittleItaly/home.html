@@ -1,7 +1,46 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Inicio{% endblock %}
 
 {% block content %}
-<h2>¡Bienvenido a LittleItaly!</h2>
+
+<div class="header">
+    <h2>¡Bienvenido a LittleItaly!</h2>
+    <div class="container-flex">
+        <div class="hero-content">
+            <h1 class="hero-h1">Increíbles <span class="brand">pizzas</span><br>para recoger, <br>o directamente a tu puerta.</h1>
+            <p class="hero-paragraph">No pierdas la oportunidad de probar las mejores pizzas del mercado.<br>Ven a nuestro restaurante para sentirte como en Italia o pide desde tu sofá.</p>
+            <div class="button-wrapper">
+                <a href="/menu/" class="button w-button">Explora el Menú</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-section-bg">
+    <div class="container">
+        <div class="w-layout-grid content-grid">
+            <div class="content-block bg-text">
+                <h2>Solo usamos los mejores productos</h2>
+            </div>
+            <div class="image-block">
+                <img src="{% static 'images/producots.avif' %}" alt="Mejores productos" class="image-2">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-section">
+    <div class="container">
+        <div class="w-layout-grid content-grid">
+            <div class="image-block">
+                <img src="{% static 'images/pedidos.jpg' %}" alt="Pedidos" width="550" height="auto">
+            </div>
+            <div class="content-block">
+                <h2>Pide online, <br>solo tienes que registrarte.</h2>
+                <p>Registrarte nunca fue tan fácil. Haz tu pedido en minutos.</p>
+                <a href="/usuarios/" class="button button-space w-button">Regístrate aquí</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

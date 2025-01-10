@@ -1,22 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}LittleItaly{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
 <body>
-    <header>
-        <h1>LittleItaly</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/menu/">Menú</a></li>
-                <li><a href="/carrito/">Carrito</a></li>
-                <li><a href="/pedidos/">Pedidos</a></li>
-                <li><a href="/usuarios/">Usuarios</a></li>
-            </ul>
-        </nav>
+    <div id="Banner" class="banner">
+        <div class="banner-wrap">
+            <div class="notice-text">Takeaway & delivery disponibles. <a href="order.html" class="white-link">Ordena ahora</a></div>
+        </div>
+    </div>
+    <header class="main-header">
+        <div class="navbar">
+            <h1 class="logo"><a href="/">LittleItaly</a></h1>
+            <nav class="menu">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/menu/">Menú</a></li>
+                    <li><a href="/pedidos/">Pedidos</a></li>
+                    <li><a href="/contacto/">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="actions">
+                <a href="/login/" class="login-btn">Iniciar sesión</a>
+                <a href="/carrito/" class="cart-btn">
+                    <span class="cart-icon">🛒</span>
+                </a>
+            </div>
+        </div>
     </header>
     <main>
         {% block content %}{% endblock %}

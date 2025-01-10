@@ -1,17 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú</title>
-</head>
-<body>
-    <header>
-        <h1>Menú</h1>
-        <a href="/">Volver a Inicio</a>
-    </header>
-    <main>
-        <p>Explora nuestro menú de pizzas y más...</p>
-    </main>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Menú{% endblock %}
+
+{% block content %}
+<div class="header-section">
+    <div class="container-flex">
+        <h1 class="header-h1">Explora nuestro <span class="brand-span">Menú</span></h1>
+    </div>
+</div>
+
+<div class="menu-grid">
+    {% if pizzas %}
+        {% for pizza in pizzas %}
+        <div class="menu-item">
+            <img src="{{ pizza.image }}" alt="{{ pizza.name }}" class="menu-image">
+            <h3>{{ pizza.name }}</h3>
+            <p>Ingredientes:</p>
+            <ul>
+                {% for ingredient in pizza.ingredients %}
+                <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No se encontraron recetas de pizzas.</p>
+    {% endif %}
+</div>
+{% endblock %}
