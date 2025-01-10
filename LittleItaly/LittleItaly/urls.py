@@ -28,5 +28,5 @@ urlpatterns = [
     path('pedidos/', include('pedidos.urls')),  # URLs de Pedidos
     path('login/', views.login_view, name='login'),  # Ruta directa para login
     path('logout/', views.logout_view, name='logout'),  # Ruta directa para logout
-    path('register/', views.register, name='register'),  # Ruta directa para registro
+    path('register/', views.register_view, name='register'),  # Ruta directa para registro
 ]
