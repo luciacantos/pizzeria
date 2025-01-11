@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
+<div class="recipe-details-container">
+    <div class="recipe-header">
+        <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image">
+        <h1 class="recipe-title">{{ recipe.name }}</h1>
+    </div>
+    
+    <div class="recipe-content">
+        <div class="recipe-section">
+            <h2 class="section-title">Ingredientes:</h2>
+            <ul class="ingredients-list">
+                {% for ingredient in recipe.ingredients %}
+                <li class="ingredient-item">{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="recipe-section">
+            <h2 class="section-title">Etiquetas de salud:</h2>
+            <ul class="health-labels-list">
+                {% for label in recipe.healthLabels %}
+                <li class="health-label-item">{{ label }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="recipe-section">
+            <h2 class="section-title">Tipo de cocina:</h2>
+            <p class="cuisine-type">{{ recipe.cuisineType }}</p>
+        </div>
+
+        <div class="recipe-section">
+            <h2 class="section-title">Calorías:</h2>
+            <p class="calories">{{ recipe.calories|floatformat:2 }} kcal</p>
+        </div>
+
+        <div class="recipe-section">
+            <h2 class="section-title">Nutrientes:</h2>
+            <ul class="nutrients-list">
+                {% for nutrient, details in recipe.totalNutrients.items %}
+                <li class="nutrient-item">{{ nutrient }}: {{ details.quantity|floatformat:2 }} {{ details.unit }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,31 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Menú{% endblock %}
 
 {% block content %}
-<div class="header-section">
-    <div class="container-flex">
-        <h1 class="header-h1">Explora nuestro <span class="brand-span">Menú</span></h1>
-    </div>
-</div>
 
-<div class="menu-grid">
-    {% if pizzas %}
+<h1>Explora nuestro Menú</h1>
+
+{% if pizzas %}
+    <div class="menu-container">
         {% for pizza in pizzas %}
-        <div class="menu-item">
-            <img src="{{ pizza.image }}" alt="{{ pizza.name }}" class="menu-image">
-            <h3>{{ pizza.name }}</h3>
-            <p>Ingredientes:</p>
-            <ul>
-                {% for ingredient in pizza.ingredients %}
-                <li>{{ ingredient }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+            <div class="menu-item">
+                <a href="{% url 'recipe_details' pizza.id %}">
+                    <img src="{{ pizza.image }}" alt="{{ pizza.name }}" class="menu-image">
+                    <h2>{{ pizza.name }}</h2>
+                </a>
+            </div>
         {% endfor %}
-    {% else %}
-        <p>No se encontraron recetas de pizzas.</p>
-    {% endif %}
-</div>
+    </div>
+{% else %}
+    <p>No se encontraron recetas disponibles.</p>
+{% endif %}
+
+
 {% endblock %}
+

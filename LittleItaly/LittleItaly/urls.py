@@ -22,11 +22,11 @@ from usuarios import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),  # Página principal
-    path('menu/', include('menu.urls')),  # URLs de Menú
-    path('carrito/', include('carrito.urls')),  # URLs de Carrito
-    path('pedidos/', include('pedidos.urls')),  # URLs de Pedidos
-    path('login/', views.login_view, name='login'),  # Ruta directa para login
-    path('logout/', views.logout_view, name='logout'),  # Ruta directa para logout
-    path('register/', views.register_view, name='register'),  # Ruta directa para registro
+    path('', home, name='home'),
+    path('menu/', include('menu.urls')),
+    path('carrito/', include('carrito.urls')),
+    path('pedidos/', include('pedidos.urls')),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('register/', views.register_view, name='register'),
 ]
