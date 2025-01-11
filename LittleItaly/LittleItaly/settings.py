@@ -149,3 +149,9 @@ EDAMAM_APP_KEY = os.getenv('EDAMAM_APP_KEY', 'EDAMAM_APP_KEY')
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/usuarios/login/'
+
+# Configuracion de autenticacion
+AUTHENTICATION_BACKENDS = [
+    'usuarios.models.EmailAuthBackend',  # Ruta a tu backend personalizado
+    'django.contrib.auth.backends.ModelBackend',  # Backend predeterminado
+]

@@ -5191,19 +5191,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 200px); /* Resta el tamaño del header y margen */
+  min-height: 80vh; /* Ocupa el 80% del alto de la ventana */
   padding: 20px;
+  margin-top: 10px; /* Espacio bajo el header */
+  margin-bottom: 10px; /* Espacio antes del footer */
+  background-color: #f9f9f9;
+}
+
+.form-container-small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Ocupa menos espacio vertical */
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: #f9f9f9;
 }
 
 form {
   background-color: #ffffff; /* Fondo blanco */
-  padding: 30px 40px;
+  padding: 30px 40px; /* Ajusta padding general */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
   width: 100%;
   max-width: 400px; /* Ancho máximo */
   text-align: center;
+  max-height: 80vh; /* Limitar altura del formulario */
+  overflow-y: auto; /* Habilitar scroll si es necesario */
 }
 
 form h1 {
@@ -5223,7 +5238,7 @@ form label {
 form input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reducir espacio entre campos */
   border: 1px solid #cccccc;
   border-radius: 5px;
   box-sizing: border-box;
@@ -5266,6 +5281,7 @@ form p a:hover {
   text-decoration: underline;
 }
 
+/* Estilo del botón de inicio y cierre de sesión */
 .login-btn, .logout-btn {
   text-decoration: none;
   background-color: #8B0000;
@@ -5279,6 +5295,7 @@ form p a:hover {
   background-color: #b22222;
 }
 
+/* Estilo de los mensajes */
 .messages {
   list-style: none;
   padding: 0;
@@ -5317,3 +5334,4 @@ form p a:hover {
   color: #856404;
   border: 1px solid #ffeeba;
 }
+

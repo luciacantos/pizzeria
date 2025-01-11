@@ -26,6 +26,7 @@ urlpatterns = [
     path('menu/', include('menu.urls')),  # URLs de Menú
     path('carrito/', include('carrito.urls')),  # URLs de Carrito
     path('pedidos/', include('pedidos.urls')),  # URLs de Pedidos
+    path('usuarios/', include('usuarios.urls')),  # URLs de Usuarios
     path('login/', views.login_view, name='login'),  # Ruta directa para login
     path('logout/', views.logout_view, name='logout'),  # Ruta directa para logout
     path('register/', views.register_view, name='register'),  # Ruta directa para registro
