@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from usuarios.models import EmailAuthBackend
 
 # Create your views here.
 
@@ -12,7 +14,7 @@ def login_view(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(request, email=email, password=password)  # Usa "email"
+        user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
             return redirect('home')  # Cambia 'home' por tu vista principal
@@ -29,37 +31,34 @@ def logout_view(request):
     return render(request, 'usuarios/logout.html')
 
 
+User = get_user_model()
 
 def register_view(request):
     if request.method == 'POST':
-        # Captura los datos del formulario
         username = request.POST['username']
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
 
-        # Validaciones básicas
+        # Validaciones
         if password1 != password2:
-            messages.error(request, 'Las contraseñas no coinciden.')
-            return render(request, 'usuarios/register.html')
-
-        if User.objects.filter(username=username).exists():
-            messages.error(request, 'El nombre de usuario ya está en uso.')
-            return render(request, 'usuarios/register.html')
+            return render(request, 'usuarios/register.html', {'error': 'Las contraseñas no coinciden.'})
 
         if User.objects.filter(email=email).exists():
-            messages.error(request, 'El correo electrónico ya está registrado.')
-            return render(request, 'usuarios/register.html')
+            return render(request, 'usuarios/register.html', {'error': 'El correo electrónico ya está registrado.'})
 
-        # Crea al usuario
+        if User.objects.filter(username=username).exists():
+            return render(request, 'usuarios/register.html', {'error': 'El nombre de usuario ya está en uso.'})
+
+        # Crear el usuario
         user = User.objects.create_user(username=username, email=email, password=password1)
         user.save()
 
-        # Inicia sesión automáticamente después de registrarse
-        login(request, user)
-        messages.success(request, 'Te has registrado exitosamente.')
-        return redirect('home')  # Cambia 'home' por la vista principal de tu aplicación
+        # Inicia sesión automáticamente
+        backend_path = 'usuarios.models.EmailAuthBackend'
+        user.backend = backend_path
+        login(request, user, backend=backend_path)
 
-    # Si es una solicitud GET
+        return redirect('home')
+
     return render(request, 'usuarios/register.html')
-
