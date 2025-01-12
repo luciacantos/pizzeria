@@ -1,3 +1,5 @@
+LINK: https://github.com/luciacantos/pizzeria
+
 # README: Pizzería - Little Italy 🍕
 Descripción 
 Este proyecto es una página web para una pizzería diseñada inicialmente en Webflow para definir estilos y obtener templates modernos y atractivos. Posteriormente, se adaptó y subió a Vercel para ofrecer una experiencia rápida y confiable.
@@ -20,5 +22,5 @@ Vercel: Hosting y despliegue de la página.
 HTML, CSS y JavaScript: Adaptación y personalización del diseño exportado.
 
 
-
+Trabajo realizado por Jacobo y Lucía.
 
