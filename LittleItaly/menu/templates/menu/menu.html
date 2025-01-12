@@ -16,7 +16,8 @@
                     <img src="{{ pizza.image }}" alt="{{ pizza.name }}" class="menu-image">
                     <h2>{{ pizza.name }}</h2>
                 </a>
-                <p>Precio: {{ pizza.precio|floatformat:2 }} €</p>
+                <!-- Precio fijo establecido directamente en el HTML -->
+                <p>Precio: 12.50 €</p>
                 <button onclick="añadirAlCarrito({{ pizza.id }})">Añadir al carrito</button>
             </div>
         {% endfor %}
@@ -50,5 +51,6 @@ async function añadirAlCarrito(productoId) {
 </script>
 
 {% endblock %}
+
 
 
