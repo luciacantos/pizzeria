@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block content %}
 
 <h1>Explora nuestro Menú</h1>
@@ -14,6 +13,8 @@
                     <img src="{{ pizza.image }}" alt="{{ pizza.name }}" class="menu-image">
                     <h2>{{ pizza.name }}</h2>
                 </a>
+                <p>Precio: {{ pizza.precio|floatformat:2 }} €</p>
+                <button onclick="añadirAlCarrito({{ pizza.id }})">Añadir al carrito</button>
             </div>
         {% endfor %}
     </div>
@@ -21,6 +22,29 @@
     <p>No se encontraron recetas disponibles.</p>
 {% endif %}
 
+<script>
+async function añadirAlCarrito(productoId) {
+    try {
+        const response = await fetch('/carrito/añadir/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify({ producto_id: productoId, cantidad: 1 }),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            alert(data.message);
+        } else {
+            alert('Error: ' + data.message);
+        }
+    } catch (error) {
+        alert('Error al añadir al carrito');
+    }
+}
+</script>
 
 {% endblock %}
 
