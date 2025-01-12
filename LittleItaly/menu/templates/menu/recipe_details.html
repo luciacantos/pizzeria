@@ -4,14 +4,19 @@
 {% block title %}{{ recipe.name }}{% endblock %}
 
 {% block content %}
+<!-- Vinculación del archivo CSS -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/recipe_details.css' %}">
+
 <div class="recipe-details-container">
+    <!-- Título centrado -->
+    <h1 class="recipe-title">{{ recipe.name }}</h1>
+
     <div class="recipe-header">
+        <!-- Imagen grande a la izquierda -->
         <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image">
-        <h1 class="recipe-title">{{ recipe.name }}</h1>
-    </div>
-    
-    <div class="recipe-content">
-        <div class="recipe-section">
+
+        <!-- Ingredientes a la derecha -->
+        <div class="recipe-section ingredients">
             <h2 class="section-title">Ingredientes:</h2>
             <ul class="ingredients-list">
                 {% for ingredient in recipe.ingredients %}
@@ -19,7 +24,10 @@
                 {% endfor %}
             </ul>
         </div>
+    </div>
 
+    <div class="recipe-content">
+        <!-- Etiquetas de salud -->
         <div class="recipe-section">
             <h2 class="section-title">Etiquetas de salud:</h2>
             <ul class="health-labels-list">
@@ -29,24 +37,41 @@
             </ul>
         </div>
 
+        <!-- Tipo de cocina -->
         <div class="recipe-section">
             <h2 class="section-title">Tipo de cocina:</h2>
             <p class="cuisine-type">{{ recipe.cuisineType }}</p>
         </div>
 
+        <!-- Calorías -->
         <div class="recipe-section">
             <h2 class="section-title">Calorías:</h2>
             <p class="calories">{{ recipe.calories|floatformat:2 }} kcal</p>
         </div>
 
+        <!-- Nutrientes en tabla -->
         <div class="recipe-section">
             <h2 class="section-title">Nutrientes:</h2>
-            <ul class="nutrients-list">
-                {% for nutrient, details in recipe.totalNutrients.items %}
-                <li class="nutrient-item">{{ nutrient }}: {{ details.quantity|floatformat:2 }} {{ details.unit }}</li>
-                {% endfor %}
-            </ul>
+            <table class="nutrients-list">
+                <thead>
+                    <tr>
+                        <th>Nutriente</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nutrient, details in recipe.totalNutrients.items %}
+                    <tr>
+                        <td>{{ nutrient }}</td>
+                        <td>{{ details.quantity|floatformat:2 }}</td>
+                        <td>{{ details.unit }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 {% endblock %}
+

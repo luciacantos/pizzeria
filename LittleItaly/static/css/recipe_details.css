@@ -1,0 +1,137 @@
+/* Contenedor principal */
+.recipe-details-container {
+    max-width: 1200px; /* Más ancho */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Título de la pizza */
+.recipe-title {
+    font-size: 50px; /* Título más grande */
+    font-weight: bold;
+    text-align: center;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/* Cabecera: Imagen a la izquierda y contenido a la derecha */
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Imagen más grande a la izquierda */
+.recipe-image {
+    width: 50%; /* Imagen ocupa el 50% del ancho */
+    max-width: 500px; /* Imagen más grande */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* Ingredientes a la derecha */
+.recipe-section.ingredients {
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+.section-title {
+    font-size: 28px; /* Tamaño más grande para los títulos */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #900; /* Títulos en rojo oscuro */
+}
+
+.ingredients-list {
+    list-style-type: disc;
+    margin: 0;
+    padding-left: 20px;
+    font-size: 18px;
+    color: #444;
+}
+
+/* Contenido adicional debajo */
+.recipe-content {
+    margin-top: 30px;
+}
+
+.recipe-section {
+    margin-bottom: 20px;
+}
+
+/* Etiquetas de salud */
+.health-labels-container {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.health-labels-list {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las etiquetas se ajusten en varias líneas */
+    gap: 10px;
+    list-style-type: none; /* Sin viñetas */
+    padding: 0;
+    margin: 0;
+}
+
+.health-label-item {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #900; /* Fondo rojo oscuro */
+    color: white; /* Texto blanco */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+/* Tabla de nutrientes */
+.nutrients-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.nutrients-list th,
+.nutrients-list td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.nutrients-list th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.nutrients-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.nutrients-list tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .recipe-header {
+        flex-direction: column; /* Imagen y contenido se apilan */
+    }
+
+    .recipe-image {
+        width: 100%; /* Imagen ocupa todo el ancho disponible */
+    }
+
+    .recipe-section.ingredients {
+        width: 100%; /* Ingredientes también ocupan todo el ancho */
+    }
+
+    .health-labels-list {
+        justify-content: center; /* Centra las etiquetas en pantallas pequeñas */
+    }
+}
