@@ -3,6 +3,9 @@
 
 {% block content %}
 
+<!-- Vinculación del archivo CSS -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+
 <h1>Explora nuestro Menú</h1>
 
 {% if pizzas %}
@@ -47,4 +50,5 @@ async function añadirAlCarrito(productoId) {
 </script>
 
 {% endblock %}
+
 
