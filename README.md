@@ -1,4 +1,4 @@
-# README: Pizzería en Vercel 🍕
+# README: Pizzería - Little Italy 🍕
 Descripción 
 Este proyecto es una página web para una pizzería diseñada inicialmente en Webflow para definir estilos y obtener templates modernos y atractivos. Posteriormente, se adaptó y subió a Vercel para ofrecer una experiencia rápida y confiable.
 
