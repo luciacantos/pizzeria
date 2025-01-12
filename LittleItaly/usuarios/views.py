@@ -6,17 +6,21 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
+from django.contrib.auth.models import User
+
 def login_view(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(request, username=email, password=password)
+        user = authenticate(request, email=email, password=password)  # Usa "email"
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('home')  # Cambia 'home' por tu vista principal
         else:
             return render(request, 'usuarios/login.html', {'error': 'Credenciales incorrectas'})
     return render(request, 'usuarios/login.html')
+
+
 
 def logout_view(request):
     if request.method == 'POST':

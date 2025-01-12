@@ -5070,3 +5070,206 @@ li {
   font-style: normal;
   font-display: auto;
 }
+
+/* Carrito */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+main {
+  padding: 2em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2em;
+}
+
+th, td {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+button {
+  padding: 0.5em 1em;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.total {
+  text-align: right;
+  font-size: 1.2em;
+}
+
+/* Inicio de sesión */
+/* Centrar el formulario dentro de un recuadro */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Ocupa el 80% del alto de la ventana */
+  padding: 20px;
+  margin-top: 10px; /* Espacio bajo el header */
+  margin-bottom: 10px; /* Espacio antes del footer */
+  background-color: #f9f9f9;
+}
+
+.form-container-small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Ocupa menos espacio vertical */
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+form {
+  background-color: #ffffff; /* Fondo blanco */
+  padding: 30px 40px; /* Ajusta padding general */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  width: 100%;
+  max-width: 400px; /* Ancho máximo */
+  text-align: center;
+  max-height: 80vh; /* Limitar altura del formulario */
+  overflow-y: auto; /* Habilitar scroll si es necesario */
+}
+
+form h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #8B0000; /* Rojo oscuro */
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: left;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px; /* Reducir espacio entre campos */
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button {
+  background-color: #8B0000; /* Rojo oscuro */
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b22222; /* Más oscuro al pasar el cursor */
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+form p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+form p a {
+  color: #8B0000; /* Rojo oscuro */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+form p a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo del botón de inicio y cierre de sesión */
+.login-btn, .logout-btn {
+  text-decoration: none;
+  background-color: #8B0000;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.logout-btn:hover, .login-btn:hover {
+  background-color: #b22222;
+}
+
+/* Estilo de los mensajes */
+.messages {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto;
+  max-width: 600px;
+}
+
+.messages li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.messages .error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.messages .success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.messages .info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.messages .warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}

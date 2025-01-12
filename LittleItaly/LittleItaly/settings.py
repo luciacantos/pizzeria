@@ -146,6 +146,16 @@ EDAMAM_APP_KEY = os.getenv('EDAMAM_APP_KEY', 'EDAMAM_APP_KEY')
 
 
 # para redirigir despues de iniciar sesion y esas cositas
+# Configuracion de autenticacion
+AUTHENTICATION_BACKENDS = [
+    'usuarios.models.EmailAuthBackend',  # Ruta a tu backend personalizado
+    'django.contrib.auth.backends.ModelBackend',  # Backend predeterminado
+]
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/usuarios/login/'
+
+from django.urls import reverse_lazy
+
+LOGIN_URL = reverse_lazy('login')  # Asegúrate de que el nombre coincida con tu URL
