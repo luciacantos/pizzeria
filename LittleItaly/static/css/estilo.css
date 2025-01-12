@@ -47,7 +47,7 @@ body {
 
 .main-header .logo a {
   font-size: 24px;
-  color: #fff;
+  color: #8B0000;
   text-decoration: none;
   font-weight: bold;
 }
@@ -61,9 +61,10 @@ body {
 }
 
 .main-header .menu ul li a {
-  color: #fff;
+  color: #8B0000;
   text-decoration: none;
   font-size: 16px;
+  border-radius: 15px;
 }
 
 .main-header .menu ul li a:hover {
@@ -5231,7 +5232,7 @@ form p a:hover {
 }
 
 .logout-btn:hover, .login-btn:hover {
-  background-color: #b22222;
+  background-color: #8B0000;
 }
 
 /* Estilo de los mensajes */
@@ -5252,7 +5253,7 @@ form p a:hover {
 
 .messages .error {
   background-color: #f8d7da;
-  color: #721c24;
+  color: #8B0000;
   border: 1px solid #f5c6cb;
 }
 

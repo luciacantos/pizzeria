@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load carrito_filters %}
+{% load static %}
 
+{% block title %}Carrito{% endblock %}
+
+
+{% block content %}
 <body>
-    <header>
-        <h1>Carrito de Compras</h1>
-    </header>
     <main>
         <section id="carrito">
             {% if carrito and carrito|length > 0 %}
@@ -22,15 +25,17 @@
                         <tr>
                             <td>{{ item.nombre }}</td>
                             <td>{{ item.cantidad }}</td>
-                            <td>{{ item.precio | round(2) }} €</td>
-                            <td>{{ (item.cantidad * item.precio) | round(2) }} €</td>
+                            <td>{{ item.precio|floatformat:2 }} €</td>
+                            <td>{{ item.cantidad|multiply:item.precio|floatformat:2 }} €</td>
                             <td>
                                 <form action="/carrito/actualizar" method="POST">
+                                    {% csrf_token %}
                                     <input type="hidden" name="producto_id" value="{{ item.id }}">
                                     <input type="number" name="cantidad" value="{{ item.cantidad }}" min="1">
                                     <button type="submit">Actualizar</button>
                                 </form>
                                 <form action="/carrito/eliminar" method="POST">
+                                    {% csrf_token %}
                                     <input type="hidden" name="producto_id" value="{{ item.id }}">
                                     <button type="submit">Eliminar</button>
                                 </form>
@@ -40,7 +45,7 @@
                     </tbody>
                 </table>
                 <div class="total">
-                    <p>Total: {{ carrito | sum(attribute='total') | round(2) }} €</p>
+                    <p>Total: {{ carrito|sum_total:'total'|floatformat:2 }} €</p>
                     <button onclick="location.href='/checkout'">Proceder al pago</button>
                 </div>
             {% else %}
@@ -49,4 +54,4 @@
         </section>
     </main>
 </body>
-</html>
+{% endblock %}
