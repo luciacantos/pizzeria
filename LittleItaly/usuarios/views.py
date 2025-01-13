@@ -5,10 +5,34 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from usuarios.models import EmailAuthBackend
+from django.core.mail import send_mail
+from django.conf import settings
 
-# Create your views here.
+def contacto(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
 
-from django.contrib.auth.models import User
+        # Validar que los campos no estén vacíos
+        if not name or not email or not message:
+            return render(request, 'usuarios/contacto.html', {'error': 'Todos los campos son obligatorios.'})
+
+        # Configurar y enviar el correo
+        try:
+            send_mail(
+                subject=f"Mensaje de {name}",
+                message=f"Correo: {email}\n\nMensaje:\n{message}",
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=['ee275252945229@mailtrap.io'],
+                fail_silently=False,
+            )
+            return render(request, 'usuarios/contacto.html', {'success': 'Mensaje enviado correctamente.'})
+        except Exception as e:
+            return render(request, 'usuarios/contacto.html', {'error': f'Error al enviar el mensaje: {str(e)}'})
+
+    return render(request, 'usuarios/contacto.html')
+
 
 def login_view(request):
     if request.method == 'POST':

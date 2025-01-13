@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import json
+
+
+
 
 load_dotenv()
 
@@ -159,3 +163,14 @@ LOGOUT_REDIRECT_URL = '/usuarios/login/'
 from django.urls import reverse_lazy
 
 LOGIN_URL = reverse_lazy('login')  # Asegúrate de que el nombre coincida con tu URL
+
+# Cargar configuración del archivo JSON
+with open(os.path.join(BASE_DIR, 'email_settings.json')) as f:
+    email_config = json.load(f)
+
+EMAIL_BACKEND = email_config['EMAIL_BACKEND']
+EMAIL_HOST = email_config['EMAIL_HOST']
+EMAIL_PORT = email_config['EMAIL_PORT']
+EMAIL_HOST_USER = email_config['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = email_config['EMAIL_HOST_PASSWORD']
+EMAIL_USE_TLS = email_config['EMAIL_USE_TLS']
