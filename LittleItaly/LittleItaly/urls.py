@@ -26,7 +26,5 @@ urlpatterns = [
     path('menu/', include('menu.urls')),
     path('carrito/', include('carrito.urls')),
     path('pedidos/', include('pedidos.urls')),
-    path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'),
-    path('register/', views.register_view, name='register'),
+    path('', include('usuarios.urls')),
 ]

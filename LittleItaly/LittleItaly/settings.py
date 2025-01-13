@@ -168,7 +168,7 @@ LOGIN_URL = reverse_lazy('login')  # Asegúrate de que el nombre coincida con tu
 with open(os.path.join(BASE_DIR, 'email_settings.json')) as f:
     email_config = json.load(f)
 
-EMAIL_BACKEND = email_config['EMAIL_BACKEND']
+
 EMAIL_HOST = email_config['EMAIL_HOST']
 EMAIL_PORT = email_config['EMAIL_PORT']
 EMAIL_HOST_USER = email_config['EMAIL_HOST_USER']
