@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!-- Vinculación del archivo CSS -->
+
 <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
 
 <h1>Explora nuestro Menú</h1>
@@ -18,7 +18,13 @@
                 </a>
                 <!-- Precio fijo establecido directamente en el HTML -->
                 <p>Precio: 12.50 €</p>
-                <button onclick="añadirAlCarrito({{ pizza.id }})">Añadir al carrito</button>
+                {% if user.is_authenticated %}
+                    <!-- Botón para usuarios autenticados -->
+                    <button onclick="añadirAlCarrito({{ pizza.id }})">Añadir al carrito</button>
+                {% else %}
+                    <!-- Botón que redirige a la página de inicio de sesión -->
+                    <button onclick="location.href='{% url 'login' %}'">Inicia sesión para añadir al carrito</button>
+                {% endif %}
             </div>
         {% endfor %}
     </div>
@@ -51,6 +57,5 @@ async function añadirAlCarrito(productoId) {
 </script>
 
 {% endblock %}
-
 
 

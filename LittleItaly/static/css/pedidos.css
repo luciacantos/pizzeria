@@ -1,0 +1,72 @@
+/* Contenedor principal */
+.pedido-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Ocupa toda la pantalla */
+    background-color: #f8f9fa; /* Fondo claro */
+}
+
+/* Formulario */
+.formulario-pedido {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    padding: 30px;
+    max-width: 500px; /* Ancho máximo */
+    width: 100%; /* Adaptable al contenedor */
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 20px; /* Espaciado entre elementos */
+}
+
+/* Título principal */
+.titulo-principal {
+    font-size: 50px; /* Título grande */
+    font-weight: bold;
+    text-align: center;
+    color: #444; /* Gris oscuro */
+    margin-bottom: 30px;
+}
+
+/* Títulos de sección */
+.titulo-seccion {
+    font-size: 28px; /* Tamaño más grande */
+    font-weight: bold;
+    color: #900; /* Rojo oscuro */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #900; /* Línea decorativa */
+    padding-bottom: 5px;
+}
+
+/* Etiquetas */
+.label {
+    font-size: 16px;
+    color: #555; /* Gris neutro */
+    margin-bottom: 5px;
+}
+
+/* Campos de entrada */
+.input {
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde claro */
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Botón de envío */
+.boton-enviar {
+    background-color: #900; /* Rojo oscuro */
+    color: #fff; /* Texto blanco */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-enviar:hover {
+    background-color: #700; /* Fondo más oscuro al pasar el mouse */
+}
