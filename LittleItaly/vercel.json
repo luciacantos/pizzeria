@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "LittleItaly/wsgi.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "LittleItaly/wsgi.py"
+        }
+    ]
+}
